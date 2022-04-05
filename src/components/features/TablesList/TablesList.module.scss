@@ -1,0 +1,16 @@
+.tableWrapper {
+  //border-bottom: 1px solid black;
+  padding: 0 0 15px 0;
+  position: relative;
+}
+
+.tableWrapper::after {
+  content: "";
+  position: absolute;
+  width: 96%;
+  border-bottom: 0.25px solid gray;
+  bottom: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}

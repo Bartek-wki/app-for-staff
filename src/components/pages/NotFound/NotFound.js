@@ -2,7 +2,7 @@ import styles from './NotFound.module.scss';
 
 const NotFound = () => {
   return (
-    'Not found'
+    <h1>NOT FOUND</h1>
   );
 };
 

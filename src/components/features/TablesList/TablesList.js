@@ -11,8 +11,6 @@ import { Button } from 'react-bootstrap';
 const TablesList = () => {
   const tables = useSelector(state => getAllTables(state));
 
-  console.log(tables);
-
   return (
     <>
       {tables.map(table => (

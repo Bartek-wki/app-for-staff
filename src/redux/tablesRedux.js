@@ -10,13 +10,13 @@ const createActionName = actionName => `app/tables/${actionName}`;
 const UPDATE_TABLES = createActionName('UPDATE_TABLES');
 const EDIT_TABLE = createActionName('EDIT_TABLE');
 const ADD_TABLE = createActionName('ADD_TABLE');
-const REMOVE_POST = createActionName('REMOVE_POST');
+const REMOVE_TABLE = createActionName('REMOVE_TABLE');
 
 // action creators
 export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
 export const editTable = payload => ({ type: EDIT_TABLE, payload });
-export const addTable = payload => ({ type: EDIT_TABLE, payload });
-export const removeTable = payload => ({ type: REMOVE_POST, payload });
+export const addTable = payload => ({ type: ADD_TABLE, payload });
+export const removeTable = payload => ({ type: REMOVE_TABLE, payload });
 export const fetchTables = setPending => {
   return (dispatch) => {
     fetch(API_URL + '/tables')
@@ -64,7 +64,6 @@ export const addTableRequest = (newTable) => {
   }
 };
 export const removeTableRequest = ({ id }) => {
-  console.log(id)
   return (dispatch) => {
     const options = {
       method: 'DELETE',
@@ -85,8 +84,9 @@ const tablesReducer = (statePart = [], action) => {
     case EDIT_TABLE:
       return statePart.map(table => (table.id === action.payload.id ? { ...table, ...action.payload } : table));
     case ADD_TABLE: 
+      console.log(action.payload)
       return [...statePart, { ...action.payload }]
-    case REMOVE_POST:
+    case REMOVE_TABLE:
       return statePart.filter(table => table.id !== action.payload)
     default:
       return statePart;

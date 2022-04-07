@@ -1,3 +1,5 @@
+import { API_URL } from '../config';
+
 //selectors
 export const getAllTables = ({ tables }) => tables;
 export const getTableById = ({ tables }, id) => tables.find(table => table.id === id);
@@ -13,7 +15,7 @@ export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
 export const editTable = payload => ({ type: EDIT_TABLE, payload });
 export const fetchTables = setPending => {
   return (dispatch) => {
-    fetch('http://localhost:3131/api/tables')
+    fetch(API_URL + '/tables')
       .then(res => {
         if (res.status === 200) {
           return res.json()
@@ -41,7 +43,7 @@ export const editTableRequest = ({id, status, peopleAmount, maxPeopleAmount, bil
         bill: bill
       }),
     };
-    fetch('http://localhost:3131/tables/' + id, options)
+    fetch(API_URL + '/tables/' + id, options)
       .then(() => dispatch(editTable({id, status, peopleAmount, maxPeopleAmount, bill})))
   }
 }

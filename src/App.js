@@ -8,6 +8,7 @@ import Header from './components/views/Header/Header';
 import Footer from './components/views/Footer/Footer';
 import Home from './components/pages/Home/Home'
 import Table from './components/pages/Table/Table';
+import AddTable from './components/pages/AddTable/AddTable';
 import NotFound from './components/pages/NotFound/NotFound';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={<Home pending={pending} />} />
         <Route exact path='/table/:id' element={<Table pending={pending} />} />
+        <Route exact path='/add' element={<AddTable pending={pending} />} />
         <Route exact path="*" element={<NotFound />} />
       </Routes>
       <Footer />

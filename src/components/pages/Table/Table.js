@@ -20,7 +20,7 @@ const Table = ({ pending }) => {
   return (
     <>
       {pending && <Load />}
-      {!pending && <SingleTable table={table} id={id} />} 
+      {!pending && <SingleTable table={table}/>} 
     </>
   );
 };

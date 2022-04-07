@@ -11,6 +11,9 @@ const Navbar = () => {
         <h5>Waiter.app</h5>
       </Col>
       <Col className='d-flex justify-content-end align-items-center'>
+        <Link to={'/add'}>
+          Add table
+        </Link>
         <Link to={'/'}>
           Home
         </Link>
